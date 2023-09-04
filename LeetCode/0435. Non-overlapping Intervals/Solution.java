@@ -11,9 +11,7 @@ class Solution {
            if(intervals[i][0]>=end){
                c++;
                end=intervals[i][1];
-           } 
-            
-            
+           }            
         }
         return intervals.length-c;
         
