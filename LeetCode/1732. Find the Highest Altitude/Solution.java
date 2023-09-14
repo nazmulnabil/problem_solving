@@ -1,19 +1,23 @@
-import java.util.Collection;
-import java.util.Collections;
 import java.util.List;
+import java.util.Set;
 
 class Solution {
-    public int largestAltitude(int[] gain) {
-         List<Integer> prefixList=new ArrayList<>();
-         int prefixSum=0;
-         prefixList.add(prefixSum);
+    public static int gcdStrings(int num1,int num2){
+         while(num2!= 0){
+           int temp=num2;
+           num2=num1%num2;
+           num1=temp;
+         }    
+          return num1;
+    }
+    public String gcdOfStrings(String str1, String str2) {
+        String prefix="";
+        
+          if((str1+str2).equals(str2+str1)){
+            int gcd=gcdStrings(str1.length(),str2.length());
+                 return str1.substring(0, gcd);
 
-         for(int i=0;i<gain.length;i++){
-            prefixSum+= gain[i];
-            prefixList.add(prefixSum);
-         }
-         Collections.sort(prefixList);
-         return prefixList.get(prefixList.size()-1);
-
+          }
+        return "";
     }
 }
