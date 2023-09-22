@@ -6,14 +6,21 @@ class Solution {
         Queue<Integer> queue =new LinkedList<>();
 
         queue.add(root.val);
-        list.add(new ArrayList<>().add(root.val));
 
         while(!queue.isEmpty()){
-            TreeNode node= queue.poll();
-            if(root.left!=null)
-              queue.add(root.left);
-              if(root.right!=null)
-              queue.add(root.right);
+              int currentLevel= queue.size();
+              List<Integer> levelList=new ArrayList<>();
+              for(int i=0;i<currentLevel;i++){
+                TreeNode node= queue.poll();
+                levelList.add(node);
+                 if(node.left!=null)
+                 queue.add(node.left);
+                 if(node.right!=null)
+                 queue.add(node.right);
+              }
+              list.add(levelList);
+
         }
+        return list;
     }
 }
